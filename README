@@ -1,0 +1,71 @@
+Quicktimer - Simple specific performance benchmarks for your JavaScript.
+
+--== Intro ==--
+
+JavaScript performance directly affects user experience, and poorly constructed JavaScript will have a direct impact on this. Chrome DevTools lets you look at the performance of functions down to a very granular level, but cycles of optimizing and navigating through this interface adds extra steps when we're trying to determine if particular changes improve or detract from the final goal.
+
+This tool was born from mobile web app development and trying to find what parts of the code were causing > 250 msc (annoying) responses to user events. Breakpoints were of no help because they interrupt the execution, DevTools pointed at some trouble spots, but measuring improvements was sub-optimal.
+
+What I needed was a solution that had no particular dependencies to inject at troublesome points in a function to measure improvements. QuickTimer is my solution. It supports console colors!
+
+This is not intended for production, but if you are particularly lazy or overworked, there is an enable/disable option.
+
+--== Features ==--
+
+* Easy to implement execution time measurements. Supports anonymous functions.
+* Configurable for PhoneGap / xCode / Android console logs (which don't support multiple argument syntax).
+* Colored console logs for trouble spots, configurable color and timer trigger.
+* Global on / off
+* Interval timer
+
+--== Cavets ==--
+
+* This was made in a few hours, it's not extensively tested, and doesn't support IE.
+* A more robust solution could be implemented using Mocha and PhantomJS.
+
+--== Usage ==--
+
+Given the following :
+
+	function ComplicatedFunction() {
+		QuickTimer.start("ComplicatedFunction");
+
+		aComplexSubFunction();
+
+		QuickTimer.ping('Complex Subfunction');
+
+		for (i = 0; i < 100000; i++){
+			a = i + i;
+		}
+
+		QuickTimer.ping('For Loop');
+
+		oneMoreFunction();
+
+		QuickTimer.end();
+	}
+
+Will output in the console, where xxx is the length of time between calls:
+
+0 ComplicatedFunction() begins
+xxx ComplicatedFunction() Complex subfunction
+xxx ComplicatedFunction() For Loop
+xxx ComplicatedFunction() ends
+
+The interval timer starts with:
+	QuickTimer.startCountDown
+
+And ends with:
+	QuickTimer.endCountDown
+
+--== Tests ==--
+
+Run `make test` in the root directory. This was done for the heck of it and is not comprehensive.
+
+--== License ==--
+
+See License file.
+
+--== Support / Praise ==--
+
+Please write: Sean Canton < eighteyes (at) gmail.com >
