@@ -2,7 +2,7 @@
 ** Quicktimer - Simple specific performance benchmarks for your JavaScript.
 ** https://github.com/eighteyes/quicktimer/
 ** See README for usage - MIT License
-** copyright (c) 2013 Sean Canton < eighteyes (at) gmail.com >
+** copyright (c) 2013 Sean Canton < sean (at) 8isc.com >
 */
 
 

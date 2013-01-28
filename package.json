@@ -3,7 +3,7 @@
   "version": "0.5",
   "description": "A simple timer to measure javascript optimizations",
   "keywords": ["development tool", "optimize", "timer"],
-  "author": "Sean Canton <eighteyes@gmail.com>",
+  "author": "Sean Canton <sean@8isc.com>",
   "main": "quicktimer",
   "engines": {
     "node": ">= 0.4.x < 0.7.0"
