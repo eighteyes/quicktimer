@@ -48,8 +48,8 @@ Given the following :
 Will output in the console, where xxx is the length of time between calls:
 
 0 ComplicatedFunction() begins
-xxx ComplicatedFunction() Complex subfunction
-xxx ComplicatedFunction() For Loop
+xxx ComplicatedFunction() -> Complex subfunction
+xxx ComplicatedFunction() -> For Loop
 xxx ComplicatedFunction() ends
 
 The interval timer starts with:

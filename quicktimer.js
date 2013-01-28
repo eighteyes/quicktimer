@@ -40,7 +40,7 @@ var QuickTimer = (function() {
 		lastTime = Date.now();
 		counter = 0;
 
-		QuickTimer.emit(0, funcName || "" + "() begins");
+		QuickTimer.emit(0, (funcName || "") + "() begins");
 	};
 
 	methods.ping = function(partName) {
@@ -48,7 +48,7 @@ var QuickTimer = (function() {
 		if (delta > 100000) { console.warn('QuickTimer ping() without start()'); }
 		lastTime = Date.now();
 		counter++;
-		QuickTimer.emit(delta, funcName || "" + "()", partName, counter);
+		QuickTimer.emit(delta, (funcName || "") + "() ->", partName, counter);
 		return delta;
 	};
 
@@ -74,6 +74,8 @@ var QuickTimer = (function() {
 			count = arguments[3];
 			mobilemsg = [time, func, part, count].join(' ');
 		} else {
+			part = "";
+			count = "";
 			mobilemsg = [qt.config.name, time, func].join(' ');
 		}
 
@@ -83,9 +85,9 @@ var QuickTimer = (function() {
 		}
 
 		if (time > qt.config.warnTime ){
-			console.log('%c ' + time, 'color:'+ qt.config.warnColor +';',  func || "", part || "", count || "");
+			console.log('%c ' + time, 'color:'+ qt.config.warnColor +';', func || "", part || "", count || "");
 		} else {
-			console.log(time, func || "", part || "", count || "");
+			console.log(time.toString(), func, part || "", count || "");
 		}
 	};
 
